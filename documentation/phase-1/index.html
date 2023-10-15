@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Moderation Training</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .code-block {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .screenshot {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Discord Moderation Training
+    </header>
+    <main>
+        <h1>Part 1: Discord Basics</h1>
+
+        <p>
+            The in-charge trainer should ask the member if they know how to copy a user ID.
+        </p>
+        <button class="button" onclick="showScreenshot('/img/screenshot-copy-id.png')">Show Screenshot</button>
+
+        <p>
+            The in-charge trainer should ask the member if they know how to activate 2FA.
+        </p>
+        <button class="button" onclick="showScreenshot('/img/screenshot-activate-2fa.png')">Show Screenshot</button>
+
+        <p>
+            The in-charge trainer should ask the member if they know how to access the audit logs in a server.
+        </p>
+        <button class="button" onclick="showScreenshot('/img/screenshot-access-audit-logs.png')">Show Screenshot</button>
+
+        <h1>Part 2: General Commands of a Moderation Bot</h1>
+
+        <h2>1. Warn Command</h2>
+        <p><strong>Command:</strong> ?warn @user [reason]</p>
+        <p>This command is used to warn a user when they have broken a minor rule. The user will get a private message with your warning.</p>
+        <button class="button" onclick="showUsageAlert('?warn @user [reason]')">Show Usage</button>
+        
+        <h2>2. Mute Command</h2>
+        <p><strong>Command:</strong> ?mute @user [reason]</p>
+        <p>This command is used to mute a user.
+It will prevent them from typing in your channels. A time limit may be added but it can also be permanent. For more information about the time limit, look out the website of the bot you are using.</p>
+        <button class="button" onclick="showUsageAlert('?mute @user [reason]')">Show Usage</button>
+       
+        <h2>3. Kick Command</h2>
+        <p><strong>Command:</strong> ?kick @user [reason]</p>
+        <p>The kick command is used to remove a user from the server. However, they can still join back using an invite link.</p>
+        <button class="button" onclick="showUsageAlert('?kick @user [reason]')">Show Usage</button>
+        
+        <h2>4. Purge Command</h2>
+        <p><strong>Command:</strong> ?purge @user [reason]</p>
+        <p>The purge command is used to delete a number of messages from a channel. Question: What would be a reason for purging a given amount of messages?</p>
+        <button class="button" onclick="showUsageAlert('?purge @user [reason]')">Show Usage</button>
+                
+        <h2>5. Ban Command</h2>
+        <p><strong>Command:</strong> ?ban @user [reason]</p>
+        <p>The ban command is used to remove the user from the server permanently. They will be unable to join unless unbanned. The messages of the user will also be deleted. They are still able to join back with a Proxy or VPN.</p>
+        <button class="button" onclick="showUsageAlert('?ban @user [reason]')">Show Usage</button>
+ 
+ 		<h2>6. Unban Command</h2>
+        <p><strong>Command:</strong> ?unban [UserID] </p>
+        <p>The ban command is used to remove the user from the server permanently. They will be unable to join unless unbanned. The messages of the user will also be deleted. </p>
+        <button class="button" onclick="showUsageAlert('?ban @user [reason]')">Show Usage</button>
+
+
+        <!-- Repeat the above structure for other commands -->
+
+        <!-- JavaScript functions to show screenshots and usage alert -->
+        <script>
+            function showScreenshot(screenshotPath) {
+                const screenshotContainer = document.getElementById('screenshot-container');
+                screenshotContainer.innerHTML = '<img class="screenshot" src="' + screenshotPath + '" alt="Screenshot">';
+            }
+
+            function showUsageAlert(usage) {
+                alert("Command Usage: " + usage);
+            }
+        </script>
+    </main>
+    <div id="screenshot-container"></div>
+</body>
+</html>
