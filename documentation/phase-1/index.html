@@ -66,11 +66,17 @@
     </header>
     <main>
         <h1>Part 1: Discord Basics</h1>
-
-        <p>
-            The in-charge trainer should ask the member if they know how to copy a user ID.
-        </p>
-        <button class="button" onclick="showScreenshot('/img/screenshot-copy-id.png')">Show Screenshot</button>
+<p>
+    The in-charge trainer should ask the member if they know how to copy a user ID.
+</p>
+<button
+    class="button"
+    data-screenshot-path="/img/screenshot-copy-id.png"
+    data-usage-info="You can copy a ID by going to your Account Settings, Advanced on the Tab's then pressing Enable Developer Mode, then right click on anybody or a server / channel and you can get the id for the channel."
+    onclick="showScreenshot(this)"
+>
+    Show Screenshot
+</button>
 <p>
     The in-charge trainer should ask the member if they know how to activate 2FA.
 </p>
@@ -82,13 +88,18 @@
 >
     Show Screenshot
 </button>
-        <p>
-            The in-charge trainer should ask the member if they know how to access the audit logs in a server.
-        </p>
-        <button class="button" onclick="showScreenshot('/img/screenshot-access-audit-logs.png')">Show Screenshot</button>
-
-        <h1>Part 2: General Commands of a Moderation Bot</h1>
-
+<p>
+    The in-charge trainer should ask the member if they know how to access the audit logs in a server.
+</p>
+<button
+    class="button"
+    data-screenshot-path="/img/screenshot-access-audit-logs.png"
+    data-usage-info="You are able to view the Audit logs by going to the server settings then going to the tab that says Audit Logs."
+    onclick="showScreenshot(this)"
+>
+    Show Screenshot
+</button>
+        
 <h2>1. Warn Command</h2>
 <p><strong>Command:</strong> ?warn @user [reason]</p>
 <p>This command is used to warn a user when they have broken a minor rule. The user will get a private message with your warning.</p>
