@@ -84,48 +84,66 @@
 
         <h1>Part 2: General Commands of a Moderation Bot</h1>
 
-        <h2>1. Warn Command</h2>
-        <p><strong>Command:</strong> ?warn @user [reason]</p>
-        <p>This command is used to warn a user when they have broken a minor rule. The user will get a private message with your warning.</p>
-        <button class="button" onclick="showUsageAlert('?warn @user [reason]')">Show Usage</button>
+<h2>1. Warn Command</h2>
+<p><strong>Command:</strong> ?warn @user [reason]</p>
+<p>This command is used to warn a user when they have broken a minor rule. The user will get a private message with your warning.</p>
         
         <h2>2. Mute Command</h2>
         <p><strong>Command:</strong> ?mute @user [reason]</p>
         <p>This command is used to mute a user.
 It will prevent them from typing in your channels. A time limit may be added but it can also be permanent. For more information about the time limit, look out the website of the bot you are using.</p>
-        <button class="button" onclick="showUsageAlert('?mute @user [reason]')">Show Usage</button>
+
        
         <h2>3. Kick Command</h2>
         <p><strong>Command:</strong> ?kick @user [reason]</p>
         <p>The kick command is used to remove a user from the server. However, they can still join back using an invite link.</p>
-        <button class="button" onclick="showUsageAlert('?kick @user [reason]')">Show Usage</button>
         
         <h2>4. Purge Command</h2>
         <p><strong>Command:</strong> ?purge @user [reason]</p>
         <p>The purge command is used to delete a number of messages from a channel. Question: What would be a reason for purging a given amount of messages?</p>
-        <button class="button" onclick="showUsageAlert('?purge @user [reason]')">Show Usage</button>
                 
         <h2>5. Ban Command</h2>
         <p><strong>Command:</strong> ?ban @user [reason]</p>
         <p>The ban command is used to remove the user from the server permanently. They will be unable to join unless unbanned. The messages of the user will also be deleted. They are still able to join back with a Proxy or VPN.</p>
-        <button class="button" onclick="showUsageAlert('?ban @user [reason]')">Show Usage</button>
  
  		<h2>6. Unban Command</h2>
         <p><strong>Command:</strong> ?unban [UserID] </p>
         <p>The ban command is used to remove the user from the server permanently. They will be unable to join unless unbanned. The messages of the user will also be deleted. </p>
-        <button class="button" onclick="showUsageAlert('?ban @user [reason]')">Show Usage</button>
 
 
-        <script>
-            function showScreenshot(screenshotPath) {
-                const screenshotContainer = document.getElementById('screenshot-container');
-                screenshotContainer.innerHTML = '<img class="screenshot" src="' + screenshotPath + '" alt="Screenshot">';
-            }
+<script>
+function showScreenshot(button, screenshotPath) {
+    // Create an image element for the screenshot
+    const screenshot = document.createElement('img');
+    screenshot.className = 'screenshot';
+    screenshot.src = screenshotPath;
+    screenshot.alt = 'Screenshot';
 
-            function showUsageAlert(usage) {
-                alert("Command Usage: " + usage);
-            }
-        </script>
+    // Find the parent element of the button
+    const parentElement = button.parentElement;
+
+    // Insert the screenshot as a new element below the button
+    parentElement.insertBefore(screenshot, button.nextSibling);
+
+    // Get the usage information from the button's data attribute
+    const usageInfo = button.getAttribute('data-usage-info');
+    
+    // Show the usage info in an alert
+}
+
+const buttons = document.querySelectorAll('.button');
+buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+        // Get the screenshot path from the button's data attribute
+        const screenshotPath = button.getAttribute('data-screenshot-path');
+
+        // Show the screenshot below the button
+        showScreenshot(button, screenshotPath);
+    });
+});
+
+</script>
+
     </main>
     <div id="screenshot-container"></div>
 </body>
