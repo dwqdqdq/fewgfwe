@@ -128,48 +128,40 @@ It will prevent them from typing in your channels. A time limit may be added but
 
 
 <script>
-function showScreenshot(button) {
-    const contentDiv = button.nextElementSibling;
+<script>
+    function showScreenshot(button) {
+        if (!button.disabled) {
+            const screenshotPath = button.getAttribute('data-screenshot-path');
+            const usageInfo = button.getAttribute('data-usage-info');
 
-    if (!contentDiv) {
-        const screenshotPath = button.getAttribute('data-screenshot-path');
-        const usageInfo = button.getAttribute('data-usage-info');
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('content');
 
-        // Create a container div for content
-        const contentDiv = document.createElement('div');
-        contentDiv.classList.add('content');
+            const screenshot = document.createElement('img');
+            screenshot.className = 'screenshot';
+            screenshot.src = screenshotPath;
+            screenshot.alt = 'Screenshot';
 
-        // Create an image element
-        const screenshot = document.createElement('img');
-        screenshot.className = 'screenshot';
-        screenshot.src = screenshotPath;
-        screenshot.alt = 'Screenshot';
+            const usageParagraph = document.createElement('p');
+            usageParagraph.innerText = usageInfo;
 
-        // Create a paragraph for usage information
-        const usageParagraph = document.createElement('p');
-        usageParagraph.innerText = usageInfo;
+            contentDiv.appendChild(screenshot);
+            contentDiv.appendChild(usageParagraph);
 
-        // Append the screenshot and usage information to the content div
-        contentDiv.appendChild(screenshot);
-        contentDiv.appendChild(usageParagraph);
+            const parentElement = button.parentElement;
+            parentElement.insertBefore(contentDiv, button.nextSibling);
 
-        // Find the parent element of the button
-        const parentElement = button.parentElement;
-
-        // Insert the content div as new elements below the button
-        parentElement.insertBefore(contentDiv, button.nextSibling);
-
-        // Disable the button to prevent multiple clicks
-        button.disabled = true;
+            button.disabled = true; // Disable the button to prevent further clicks
+        }
     }
-}
 
-const buttons = document.querySelectorAll('.button');
-buttons.forEach(function (button) {
-    button.addEventListener('click', function () {
-        showScreenshot(button);
+    const buttons = document.querySelectorAll('.button');
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            showScreenshot(button);
+        });
     });
-});
+</script>
 
 </script>
 
