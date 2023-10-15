@@ -71,10 +71,19 @@
             The in-charge trainer should ask the member if they know how to copy a user ID.
         </p>
         <button class="button" onclick="showScreenshot('/img/screenshot-copy-id.png')">Show Screenshot</button>
-        <p>
-            The in-charge trainer should ask the member if they know how to activate 2FA.
-        </p>
-        <button class="button" onclick="showScreenshot('/img/screenshot-activate-2fa.png')">Show Screenshot</button>
+<p>
+    The in-charge trainer should ask the member if they know how to activate 2FA.
+</p>
+<button
+    class="button"
+    data-screenshot-path="/img/screenshot-activate-2fa.png"
+    data-usage-info="2FA Can be enabled going to your account settings, My Account, then scroll down. You should find a option for Enable 2FA, If you see Disable 2FA, it is already enabled and you don't need to do anything."
+    onclick="showScreenshot(this)"
+>
+    Show Screenshot and Usage
+</button>
+
+
 
         <p>
             The in-charge trainer should ask the member if they know how to access the audit logs in a server.
