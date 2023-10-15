@@ -132,24 +132,19 @@ function showScreenshot(button) {
     const screenshotPath = button.getAttribute('data-screenshot-path');
     const usageInfo = button.getAttribute('data-usage-info');
     
-    // Create an image element
     const screenshot = document.createElement('img');
     screenshot.className = 'screenshot';
     screenshot.src = screenshotPath;
     screenshot.alt = 'Screenshot';
     
-    // Create a paragraph for usage information
     const usageParagraph = document.createElement('p');
     usageParagraph.innerText = usageInfo;
     
-    // Find the parent element of the button
     const parentElement = button.parentElement;
     
-    // Insert the screenshot and usage information as new elements below the button
     parentElement.insertBefore(screenshot, button.nextSibling);
     parentElement.insertBefore(usageParagraph, button.nextSibling);
 
-    // Remove the button to avoid showing the image and usage again
     parentElement.removeChild(button);
 }
 
