@@ -80,11 +80,8 @@
     data-usage-info="2FA Can be enabled going to your account settings, My Account, then scroll down. You should find a option for Enable 2FA, If you see Disable 2FA, it is already enabled and you don't need to do anything."
     onclick="showScreenshot(this)"
 >
-    Show Screenshot and Usage
+    Show Screenshot
 </button>
-
-
-
         <p>
             The in-charge trainer should ask the member if they know how to access the audit logs in a server.
         </p>
@@ -124,6 +121,7 @@ function showScreenshot(button) {
     const screenshotPath = button.getAttribute('data-screenshot-path');
     const usageInfo = button.getAttribute('data-usage-info');
     
+    // Create an image element
     const screenshot = document.createElement('img');
     screenshot.className = 'screenshot';
     screenshot.src = screenshotPath;
@@ -132,13 +130,16 @@ function showScreenshot(button) {
     // Create a paragraph for usage information
     const usageParagraph = document.createElement('p');
     usageParagraph.innerText = usageInfo;
-
+    
     // Find the parent element of the button
     const parentElement = button.parentElement;
-
+    
     // Insert the screenshot and usage information as new elements below the button
     parentElement.insertBefore(screenshot, button.nextSibling);
     parentElement.insertBefore(usageParagraph, button.nextSibling);
+
+    // Remove the button to avoid showing the image and usage again
+    parentElement.removeChild(button);
 }
 
 const buttons = document.querySelectorAll('.button');
@@ -147,7 +148,6 @@ buttons.forEach(function (button) {
         showScreenshot(button);
     });
 });
-
 </script>
 
     </main>
