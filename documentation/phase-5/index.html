@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Moderation Training - Phase 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Discord Moderation Training - Phase 5
+    </header>
+    <main>
+        <h1>{Server protection}</h1>
+        <p>A server should always have some form of security to protect it from raids and nuke attacks. In this phase, we will talk about using Wick Bot and Xenon Bot to protect your server.</p>
+        
+        <h2>Wick Bot</h2>
+        <p>Wick is a moderation, security, and utility bot made to help the server owners protect their server from raids, mass spam attacks, and rogue staff members.</p>
+        
+        <h2>Lockdown</h2>
+        <p>Lockdown commands are very useful as they disable typing in a particular channel or the whole server. It can also blind the channels which makes the channels invisible to the users. This can make stopping raiders easier.</p>
+        <p>We will now look at the lockdown commands.</p>
+
+        <p>w!lock #channel-name</p>
+        <p>This command will lock the mentioned channel which will disable typing in that channel.</p>
+
+        <p>w!serverlock</p>
+        <p>This command will lock the whole server which will disable typing in every channel of that server.</p>
+
+        <p>w!serverlock -blind</p>
+        <p>This command will lock all the channels of the server and as well as make them invisible to the users.</p>
+
+        <p>w!lock ?t [ban/kick]</p>
+        <p>This command will ban or kick every new member who joins after this command is run.</p>
+
+        <h3>1. You're chatting in your server when a ton of members start joining and sending very gross inappropriate images, as well as harmful and mean comments and threats in all available channels. What is the most appropriate command for this situation?</h3>
+        <h3>2. During a raid will you use  w!lock ?t ban or w!serverlock first? Justify your answer.</h3>
+
+        <h2>Quarantine</h2>
+        <p>The quarantine role is given to a user when a trusted admin, extra owner, or anyone with the Quarantine permit permission runs a quarantine command on them. It can also be given when a user with dangerous permission triggers an automod filter like mass mentions, or when they trigger your anti-nuke. When one of these happens, the user is stripped of any/all power, and roles, and is given this role, until someone unquarantines them.</p>
+        <p>We will look into the commands now.</p>
+
+        <p>w!q @user ?r (reason)</p>
+        <p>This command quarantines the mentioned user and the user is stripped of powers if any are present as well as their roles.</p>
+
+        <p>w!uq @user ?r (reason)</p>
+        <p>Unquarantines the user and the user gets back their roles.</p>
+
+        <h3>1. Hurricane is a new server owner. He decides to hire some new staff members, and the server ends up having two admins - one new and one old. He makes some changes to the server and adds Wick, deciding to use its quarantine system. He decides that he wants the admin role to have quarantine permissions and turns it on. Could that be dangerous? If yes, why?</h3>
+        <h3>2. Why do you think that the power of manual quarantine is only provided to server owners?</h3>
+
+        <h2>B. Xenon Bot</h2>
+        <p>The Xenon bot is used for readymade server templates and server backup in many servers. It copies your server's channels and roles and stores it in a backup. When a copy of the server is needed, the backup is copied to a new server. This can save a lot of time in case something happens to the server.</p>
+        <p>Let us look at the commands of this bot.</p>
+
+        <p>/backup create</p>
+        <p>Creates a backup of the server in which the command is run.</p>
+
+        <p>/backup list</p>
+        <p>Shows all the backups you’ve made with their backup IDs and time of backup</p>
+
+        <p>/backup intervalon (time)</p>
+        <p>Sets the interval of backups for example 24hr, 2days, etc.</p>
+
+        <p>/backup load (backup id)</p>
+        <p>Use Xenon and run /backup list to find out the backup ID of the desired server and use /backup load (backup ID) to load the backup.</p>
+
+        <h3>1. How is this bot useful in the context of server protection?</h3>
+        <h3>2. Which command will you run if you want to make a new backup frequently, even if the mods and admins forget to create one?</h3>
+    </main>
+</body>
+</html>
