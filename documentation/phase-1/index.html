@@ -128,11 +128,16 @@ It will prevent them from typing in your channels. A time limit may be added but
 
 
 <script>
-    function showScreenshot(button) {
-        // Get the screenshot path from the button's data attribute
+function showScreenshot(button) {
+    const contentDiv = button.nextElementSibling;
+
+    if (!contentDiv) {
         const screenshotPath = button.getAttribute('data-screenshot-path');
-        // Get the usage information from the button's data attribute
         const usageInfo = button.getAttribute('data-usage-info');
+
+        // Create a container div for content
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('content');
 
         // Create an image element
         const screenshot = document.createElement('img');
@@ -142,25 +147,29 @@ It will prevent them from typing in your channels. A time limit may be added but
 
         // Create a paragraph for usage information
         const usageParagraph = document.createElement('p');
-        usageParagraph.innerText = 'Command Usage: ' + usageInfo;
+        usageParagraph.innerText = usageInfo;
+
+        // Append the screenshot and usage information to the content div
+        contentDiv.appendChild(screenshot);
+        contentDiv.appendChild(usageParagraph);
 
         // Find the parent element of the button
         const parentElement = button.parentElement;
 
-        // Insert the screenshot and usage information as new elements below the button
-        parentElement.appendChild(screenshot);
-        parentElement.appendChild(usageParagraph);
+        // Insert the content div as new elements below the button
+        parentElement.insertBefore(contentDiv, button.nextSibling);
 
-        // Disable the button to prevent further clicks
+        // Disable the button to prevent multiple clicks
         button.disabled = true;
     }
+}
 
-    const buttons = document.querySelectorAll('.button');
-    buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            showScreenshot(button);
-        });
+const buttons = document.querySelectorAll('.button');
+buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+        showScreenshot(button);
     });
+});
 
 </script>
 
