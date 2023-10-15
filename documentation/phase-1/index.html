@@ -120,30 +120,31 @@ It will prevent them from typing in your channels. A time limit may be added but
 
 
 <script>
-function showScreenshot(button, screenshotPath) {
+function showScreenshot(button) {
+    const screenshotPath = button.getAttribute('data-screenshot-path');
+    const usageInfo = button.getAttribute('data-usage-info');
+    
     const screenshot = document.createElement('img');
     screenshot.className = 'screenshot';
     screenshot.src = screenshotPath;
     screenshot.alt = 'Screenshot';
+    
+    // Create a paragraph for usage information
+    const usageParagraph = document.createElement('p');
+    usageParagraph.innerText = usageInfo;
 
     // Find the parent element of the button
     const parentElement = button.parentElement;
 
-    // Insert the screenshot as a new element below the button
+    // Insert the screenshot and usage information as new elements below the button
     parentElement.insertBefore(screenshot, button.nextSibling);
-
-    // Get the usage information from the button's data attribute
-    const usageInfo = button.getAttribute('data-usage-info');
-    
+    parentElement.insertBefore(usageParagraph, button.nextSibling);
 }
 
 const buttons = document.querySelectorAll('.button');
 buttons.forEach(function (button) {
     button.addEventListener('click', function () {
-        // Get the screenshot path from the button's data attribute
-        const screenshotPath = button.getAttribute('data-screenshot-path');
-
-        showScreenshot(button, screenshotPath);
+        showScreenshot(button);
     });
 });
 
